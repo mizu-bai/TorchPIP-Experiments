@@ -1,0 +1,21 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module pes_shell ! in 
+    interface  ! in :pes_shell
+        module pes_shell ! in :pes_shell:pes_shell.f90
+            subroutine evx(xyz,x) ! in :pes_shell:pes_shell.f90:pes_shell
+                real dimension(:,:),intent(in) :: xyz
+                real dimension((-size(xyz, 2) + size(xyz, 2) * size(xyz, 2)) / 2),intent(out),depend(xyz) :: x
+            end subroutine evx
+            subroutine evdrdx(xyz,drdx) ! in :pes_shell:pes_shell.f90:pes_shell
+                real dimension(:,:),intent(in) :: xyz
+                real dimension(3 * size(xyz, 2),(-size(xyz, 2) + size(xyz, 2) * size(xyz, 2)) / 2),intent(out),depend(xyz) :: drdx
+            end subroutine evdrdx
+        end module pes_shell
+    end interface 
+end python module pes_shell
+
+! This file was auto-generated with f2py (version:1.23.4).
+! See:
+! https://web.archive.org/web/20140822061353/http://cens.ioc.ee/projects/f2py2e

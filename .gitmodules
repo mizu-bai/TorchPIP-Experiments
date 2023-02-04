@@ -1,0 +1,3 @@
+[submodule "PyMSA-Build"]
+	path = PyMSA-Build
+	url = https://github.com/mizu-bai/PyMSA-Build.git
